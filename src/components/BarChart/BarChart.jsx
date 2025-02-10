@@ -27,14 +27,14 @@ const BarChart = () => {
         datasets: [
             {
                 label: "My First dataset",
-                backgroundColor: "rgb(255, 255, 132)",
-                borderColor: "rgb(255, 33, 132)",
+                backgroundColor: "rgb(0,0,255)",
+                borderColor: "rgb(25,25,112)",
                 data: [0, 10, 5, 2, 20, 30], // Match the length of labels
             },
             {
                 label: "My Second dataset",
-                backgroundColor: "rgb(255, 33, 132)",
-                borderColor: "rgb(255, 33, 132)",
+                backgroundColor: "rgb(25,25,112)",
+                borderColor: "rgb(25,25,112)",
                 data: [0, 10, 5, 2, 20, 30], // Match the length of labels
             },
         ],
@@ -54,7 +54,7 @@ const BarChart = () => {
     };
 
     return (
-        <div style={{ width: '800px', height: '400px' }}>
+        <div style={{ width: '800px', height: '400px' }} id='barra'>
             <Bar data={data} options={options} />
         </div>
     );

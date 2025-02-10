@@ -27,12 +27,12 @@ const RadarChart = () => {
         datasets: [
             {
                 label: "My First dataset",
-                backgroundColor: "rgba(255, 255, 132, 0.2)",
+                backgroundColor: "rgb(0,0,255)",
                 data: [0, 10, 5, 2, 20, 30, 40],
             },
             {
                 label: "My Second dataset",
-                backgroundColor: "rgba(255, 33, 132, 0.2)",
+                backgroundColor: "rgb(25,25,112)",
                 data: [5, 15, 10, 8, 25, 35, 45],
             },
         ],
@@ -52,7 +52,7 @@ const RadarChart = () => {
     };
 
     return (
-        <div style={{ width: '800px', height: '400px' }}>
+        <div style={{ width: '800px', height: '400px' }} id='radar'>
             <Radar data={data} options={options} />
         </div>
     );
