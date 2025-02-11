@@ -14,7 +14,7 @@ ul{
 }
 /* background: linear-gradient(45deg, blue, purple, pink); */
 a{
-font-size: 3rem;
+font-size: 1.5rem;
 color: aliceblue;
 }
 
@@ -31,6 +31,29 @@ color: aliceblue;
 }
 
 h1{
-    font-size: 5rem;
+    font-size: 3rem;
 }
 
+.stack {
+    position: relative;
+    width: 100%;
+}
+
+.stack img {
+    width: 100%;
+    display: block;
+}
+
+.stack h1 {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.stack p {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
