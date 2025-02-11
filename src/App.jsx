@@ -8,7 +8,7 @@ import {Card} from "./components/Card/Card.jsx";
 import {Footer} from "./components/Footer/Footer.jsx";
 import BarChart from "./components/BarChart/BarChart.jsx";
 import RadarChart from "./components/RadarChart/RadarChart.jsx";
-import { Header } from "./components/header/header.jsx";
+import { Header } from "./components/Header/Header.jsx";
 import PolarChart from "./components/PolarChart/PolarChart.jsx";
 import PieChart from './components/PieChart/PieChart.jsx';
 import BubbleChart from './components/Bubble/BubbleChart.jsx';
@@ -26,27 +26,27 @@ function App() {
           width: "100vw"
       }}>
           <Card>
-              <div>
+              <div id={"BarChart"}>
                   <BarChart/>
               </div>
           </Card>
           <Card>
-              <div>
+              <div id={"RadarChart"}>
                   <RadarChart/>
               </div>
           </Card>
           <Card>
-              <div>
+              <div id={"PolarChart"}>
                   <PolarChart/>
               </div>
           </Card>
           <Card>
-              <div>
+              <div id={"PieChart"}>
                   <PieChart/>
               </div>
           </Card>
           <Card>
-              <div>
+              <div id={"BubbleChart"}>
                   <BubbleChart/>
               </div>
           </Card>
