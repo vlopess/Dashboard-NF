@@ -9,9 +9,10 @@ import {Footer} from "./components/Footer/Footer.jsx";
 import BarChart from "./components/BarChart/BarChart.jsx";
 import RadarChart from "./components/RadarChart/RadarChart.jsx";
 import { Header } from "./components/Header/Header.jsx";
-import PolarChart from "./components/PolarChart/PolarChart.jsx";
+import PolarChart from "./components/TreeMapChart/TreeMapChart.jsx";
 import PieChart from './components/PieChart/PieChart.jsx';
 import BubbleChart from './components/Bubble/BubbleChart.jsx';
+import TreeMapChart from "./components/TreeMapChart/TreeMapChart.jsx";
 
 function App() {
   return (
@@ -36,8 +37,8 @@ function App() {
               </div>
           </Card>
           <Card>
-              <div id={"PolarChart"}>
-                  <PolarChart/>
+              <div id={"ChartTreeMap"}>
+                  <TreeMapChart/>
               </div>
           </Card>
           <Card>
