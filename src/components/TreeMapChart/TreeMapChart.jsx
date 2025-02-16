@@ -19,7 +19,7 @@ const TreemapChart = () => {
                     const columns = line.split("\t");
                     if (columns.length < 10) return;
 
-                    const CNAE = columns[5]?.trim();
+                    const CNAE = columns[6]?.trim();
                     const VALOR_BRUTO = parseFloat(columns[columns.length - 2]);
 
                     if (!CNAE || isNaN(VALOR_BRUTO)) return;
@@ -37,6 +37,7 @@ const TreemapChart = () => {
                     category: key,
                     value: valor
                 }));
+                console.log(tree)
 
                 setChartData({
                     datasets: [
@@ -60,12 +61,20 @@ const TreemapChart = () => {
     const options = {
         plugins: {
             tooltip: {
+                enabled: true,
                 callbacks: {
-                    title: () => "",
+                    title: (items) => {
+                        const item = items[0];
+                        return item.raw._data.category;
+                    },
+                    label: (item) => {
+                        return `Valor Bruto: ${item.raw.v.toLocaleString("pt-BR", {style: "currency", currency: "BRL",})}`;
+                    },
                 },
             },
         },
     };
+
 
     if (!chartData) return <p>Carregando...</p>;
 
