@@ -47,7 +47,7 @@ export const MenuHeader = () => {
     }
 
     function goToChartBubble() {
-        let y = document.getElementById("BubbleChart").offsetTop;
+        let y = document.getElementById("LineChart").offsetTop;
         window.scroll({
             top: y - 80,
             behavior: 'smooth'
@@ -80,15 +80,15 @@ export const MenuHeader = () => {
 
     return (
         <>
-            <div style={{display: "inline-block", position: "fixed", top: top, left: "40%"}}>
+            <div style={{display: "inline-block", position: "fixed", top: top, left: "50%",transform: "translateX(-50%)"}}>
                 <div className="radio-inputs">
                     <label className="radio" onClick={goToChartBar}>
                         <input type="radio" name="radio"/>
-                        <span className="name">Barra</span>
+                        <span className="name">BarChart</span>
                     </label>
                     <label className="radio" onClick={goToChartRadar}>
                         <input type="radio" name="radio"/>
-                        <span className="name">Radar</span>
+                        <span className="name">RadarChart</span>
                     </label>
                     <label className="radio" onClick={goToChartTreeMap}>
                         <input type="radio" name="radio"/>
@@ -100,7 +100,7 @@ export const MenuHeader = () => {
                     </label>
                     <label className="radio" onClick={goToChartBubble}>
                         <input type="radio" name="radio"/>
-                        <span className="name">Mapa de Bolha</span>
+                        <span className="name">LineChart</span>
                     </label>
                 </div>
             </div>

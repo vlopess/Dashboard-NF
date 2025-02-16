@@ -58,7 +58,7 @@ const LineChart = () => {
                     datasets: [
                         {
                             label: "Total Bruto Vendido para a Bahia",
-                            borderColor: "rgba(54, 162, 235, 1)",
+                            borderColor:  "rgb(25,25,112)",
                             backgroundColor: "rgba(54, 162, 235, 0.2)",
                             borderWidth: 2,
                             pointRadius: 5,
@@ -77,7 +77,6 @@ const LineChart = () => {
             title: { 
                 display: true, 
                 text: "Estados que mais fornecem mercadorias para a Bahia, baseado no total bruto",
-                font: { size: 16 }
             }
         },
         scales: {
@@ -99,7 +98,7 @@ const LineChart = () => {
     };
 
     return (
-        <div style={{ width: "650px", height: "400px" }} id="linha">
+        <div style={{ width: "600px", height: "400px" }} id="linha">
             {chartData ? <Line data={chartData} options={options} /> : <p>Carregando gráfico...</p>}
         </div>
     );

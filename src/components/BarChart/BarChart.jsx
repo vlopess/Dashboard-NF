@@ -74,12 +74,12 @@ const BarChart = () => {
         responsive: true,
         plugins: {
             legend: { position: "top" },
-            title: { display: true, text: "Quais estados mais compram da Bahia?" },
+            title: { display: true, text: "Estados que mais compram da Bahia" },
         },
     };
 
     return (
-        <div style={{  width: "650px", height: "400px"}} id="barra">
+        <div style={{  width: "600px", height: "400px"}} id="barra">
             {chartData ? <Bar data={chartData} options={options} /> : <p>Carregando gráfico...</p>}
         </div>
     );

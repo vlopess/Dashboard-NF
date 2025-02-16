@@ -74,6 +74,7 @@ const PieChartICMS = () => {
 
     const options = {
         responsive: true,
+        maintainAspectRatio: false,
         plugins: {
             legend: { position: "top" },
             title: { display: true, text: "Estados que mais geram ICMS nas vendas" },
@@ -81,7 +82,7 @@ const PieChartICMS = () => {
     };
 
     return (
-        <div style={{ width: "650px", height: "400px" }} id="pizza">
+        <div style={{ width: "600px", height: "400px" }} id="pizza">
             {chartData ? <Pie data={chartData} options={options} /> : <p>Carregando gráfico...</p>}
         </div>
     );

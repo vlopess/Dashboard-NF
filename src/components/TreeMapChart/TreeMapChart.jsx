@@ -42,7 +42,7 @@ const TreemapChart = () => {
                 setChartData({
                     datasets: [
                         {
-                            label: "Setores econômicos relevantes nas vendas",
+                            label: "Setores econômicos mais relevantes nas vendas",
                             tree: tree,
                             key: "value",
                             backgroundColor: (ctx) => {
@@ -60,6 +60,13 @@ const TreemapChart = () => {
 
     const options = {
         plugins: {
+            legend:{
+                labels: {
+                    font: {
+                        weight: "bold" 
+                    }
+                }
+            },
             tooltip: {
                 enabled: true,
                 callbacks: {

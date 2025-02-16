@@ -61,7 +61,7 @@ const options = {
 };
 
 return (
-    <div style={{ width: '650px', height: '400px' }} id='polar'>
+    <div style={{ width: '600px', height: '400px' }} id='polar'>
         <PolarArea data={data} options={options} />
     </div>
 );

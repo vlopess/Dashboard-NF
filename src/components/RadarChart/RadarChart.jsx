@@ -81,7 +81,7 @@ const RadarChart = () => {
         maintainAspectRatio: false,
         plugins: {
             legend: { position: "top" },
-            title: { display: true, text: "Principais setores de vendas em abril" },
+            title: { display: true, text: "Principais setores de vendas no mês de abril" },
         },
         scales: {
             r: {
@@ -101,7 +101,7 @@ const RadarChart = () => {
     };
 
     return (
-        <div style={{ width: "650px", height: "400px" }} id="radar">
+        <div style={{ width: "600px", height: "400px" }} id="radar">
             {chartData ? <Radar data={chartData} options={options} /> : <p>Carregando gráfico...</p>}
         </div>
     );
