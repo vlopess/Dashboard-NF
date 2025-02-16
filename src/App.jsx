@@ -11,7 +11,7 @@ import RadarChart from "./components/RadarChart/RadarChart.jsx";
 import { Header } from "./components/Header/Header.jsx";
 import PolarChart from "./components/TreeMapChart/TreeMapChart.jsx";
 import PieChart from './components/PieChart/PieChart.jsx';
-import BubbleChart from './components/Bubble/BubbleChart.jsx';
+import LineChart from './components/LineChart/LineChart.jsx';
 import TreeMapChart from "./components/TreeMapChart/TreeMapChart.jsx";
 
 function App() {
@@ -47,8 +47,8 @@ function App() {
               </div>
           </Card>
           <Card>
-              <div id={"BubbleChart"}>
-                  <BubbleChart/>
+              <div id={"LineChart"}>
+                  <LineChart/>
               </div>
           </Card>
       </div>

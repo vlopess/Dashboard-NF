@@ -1,6 +1,5 @@
 import "./Header.css"
-import {MenuHeader} from "./MenuHeader/MenuHeader.jsx";
-
+import { MenuHeader } from "./MenuHeader/MenuHeader.jsx";
 
 
 

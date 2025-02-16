@@ -34,7 +34,7 @@ const data = {
   datasets: [
     {
       label: 'Dataset 1',
-      data: Array.from({ length: DATA_COUNT }, () => Math.floor(Math.random() * 100)), // Gera valores aleatórios
+      data: Array.from({ length: DATA_COUNT }, () => Math.floor(Math.random() * 100)), 
       backgroundColor: [
         'rgb(25,25,112)',
         'rgb(0,0,128)',
@@ -42,7 +42,7 @@ const data = {
         'rgba	(0,0,205)',
         'rgba(54, 162, 235, 0.5)',
       ],
-    //   data: [5, 15, 10, 8, 25, 35, 45]
+   
     }
   ]
 };
@@ -61,7 +61,7 @@ const options = {
 };
 
 return (
-    <div style={{ width: '800px', height: '400px' }} id='polar'>
+    <div style={{ width: '650px', height: '400px' }} id='polar'>
         <PolarArea data={data} options={options} />
     </div>
 );
