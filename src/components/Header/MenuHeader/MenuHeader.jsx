@@ -10,7 +10,7 @@ import {useEffect, useState} from "react";
 
 export const MenuHeader = () => {
 
-    const [top, setTop] = useState("30%");
+    const [top, setTop] = useState("25%");
 
     function goToChartBar() {
         let y = document.getElementById("BarChart").offsetTop;
@@ -28,8 +28,18 @@ export const MenuHeader = () => {
         });
     }
 
-    function goToChartPolar() {
-        let y = document.getElementById("PolarChart").offsetTop;
+
+
+    function goToPieChart() {
+        let y = document.getElementById("PieChart").offsetTop;
+        window.scroll({
+            top: y - 80,
+            behavior: 'smooth'
+        });
+    }
+
+    function goToChartTreeMap() {
+        let y = document.getElementById("ChartTreeMap").offsetTop;
         window.scroll({
             top: y - 80,
             behavior: 'smooth'
@@ -53,9 +63,9 @@ export const MenuHeader = () => {
         const handleResize = () => {
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 100) {
-                    setTop("1%");
+                    setTop("2.5%");
                 } else {
-                    setTop("30%");
+                    setTop("25%");
                 }
             });
         };
@@ -70,7 +80,7 @@ export const MenuHeader = () => {
 
     return (
         <>
-            <div style={{display: "inline-block", position: "fixed", top: top, left: "45%"}}>
+            <div style={{display: "inline-block", position: "fixed", top: top, left: "40%"}}>
                 <div className="radio-inputs">
                     <label className="radio" onClick={goToChartBar}>
                         <input type="radio" name="radio"/>
@@ -80,9 +90,13 @@ export const MenuHeader = () => {
                         <input type="radio" name="radio"/>
                         <span className="name">Radar</span>
                     </label>
-                    <label className="radio" onClick={goToChartPolar}>
+                    <label className="radio" onClick={goToChartTreeMap}>
                         <input type="radio" name="radio"/>
-                        <span className="name">Polar Area</span>
+                        <span className="name">TreeMap</span>
+                    </label>
+                    <label className="radio" onClick={goToPieChart}>
+                        <input type="radio" name="radio"/>
+                        <span className="name">PieChart</span>
                     </label>
                     <label className="radio" onClick={goToChartBubble}>
                         <input type="radio" name="radio"/>
