@@ -1,5 +1,5 @@
-import React from 'react';
-import { Bar } from 'react-chartjs-2';
+import React, { useEffect, useState } from "react";
+import { Bar } from "react-chartjs-2";
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -8,54 +8,79 @@ import {
     Title,
     Tooltip,
     Legend,
-} from 'chart.js';
+} from "chart.js";
 
-// Register Chart.js components
-ChartJS.register(
-    CategoryScale,
-    LinearScale,
-    BarElement,
-    Title,
-    Tooltip,
-    Legend
-);
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const BarChart = () => {
-    const labels = ["January", "February", "March", "April", "May", "June"];
-    const data = {
-        labels: labels,
-        datasets: [
-            {
-                label: "My First dataset",
-                backgroundColor: "rgb(0,0,255)",
-                borderColor: "rgb(25,25,112)",
-                data: [0, 10, 5, 2, 20, 30], // Match the length of labels
-            },
-            {
-                label: "My Second dataset",
-                backgroundColor: "rgb(25,25,112)",
-                borderColor: "rgb(25,25,112)",
-                data: [0, 10, 5, 2, 20, 30], // Match the length of labels
-            },
-        ],
-    };
+    const [chartData, setChartData] = useState(null);
+
+    useEffect(() => {
+        fetch("/Compra_2019_01.txt")
+            .then((response) => response.text())
+            .then((text) => {
+                const lines = text.split("\n");
+
+                const totalsByType = {};
+                const BA = 'BA';
+
+                lines.forEach((line) => {
+                    const columns = line.split("\t");
+                    if (columns.length < 10) return;
+
+                    const ESTADO = columns[1]?.trim();
+                    const VALOR_BRUTO = parseFloat(columns[columns.length - 2]);
+
+                    if (columns[3]?.trim() === BA) {
+                        if (!totalsByType[ESTADO]) {
+                            totalsByType[ESTADO] = 0;
+                        }
+                        totalsByType[ESTADO] += VALOR_BRUTO;
+                    }
+                });
+
+                const entries = Object.entries(totalsByType);
+
+                const sortedByValue = entries.sort((a, b) => b[1] - a[1]);
+
+                const top10 = sortedByValue.slice(0, 10);
+
+                const labels = top10.map(([estado]) => estado);
+                const datasets = [];
+
+                top10.forEach(([key, valor]) => {
+                    const cor = Math.floor(Math.random() * 255);
+                    const backgroundColor = `rgb(0,0,${cor})`;
+
+                    const data = labels.map((label) => (label === key ? valor : 0));
+
+                    datasets.push({
+                        label: key,
+                        backgroundColor: backgroundColor,
+                        borderColor: "rgb(25,25,112)",
+                        data: data,
+                    });
+                });
+
+                setChartData({
+                    labels: labels,
+                    datasets: datasets,
+                });
+            })
+            .catch((error) => console.error("Erro ao carregar o arquivo:", error));
+    }, []);
 
     const options = {
         responsive: true,
         plugins: {
-            legend: {
-                position: 'top',
-            },
-            title: {
-                display: true,
-                text: 'Bar Chart Example',
-            },
+            legend: { position: "top" },
+            title: { display: true, text: "Quais estados mais compram da Bahia?" },
         },
     };
 
     return (
-        <div style={{ width: '800px', height: '400px' }} id='barra'>
-            <Bar data={data} options={options} />
+        <div style={{ width: "800px", height: "400px" }} id="barra">
+            {chartData ? <Bar data={chartData} options={options} /> : <p>Carregando gráfico...</p>}
         </div>
     );
 };
