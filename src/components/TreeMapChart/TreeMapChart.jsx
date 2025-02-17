@@ -37,7 +37,7 @@ const TreemapChart = () => {
                     category: key,
                     value: valor
                 }));
-                console.log(tree)
+       
 
                 setChartData({
                     datasets: [

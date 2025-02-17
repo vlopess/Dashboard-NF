@@ -77,7 +77,15 @@ const LineChart = () => {
             title: { 
                 display: true, 
                 text: "Estados que mais fornecem mercadorias para a Bahia, baseado no total bruto",
-            }
+            },
+            tooltip: {
+                enabled: true,
+                callbacks: {
+                    label: (item) => {
+                        return `Valor Bruto: ${item.raw.toLocaleString("pt-BR", {style: "currency", currency: "BRL",})}`;
+                    },
+                },
+            },
         },
         scales: {
             x: {

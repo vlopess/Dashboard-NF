@@ -75,6 +75,14 @@ const BarChart = () => {
         plugins: {
             legend: { position: "top" },
             title: { display: true, text: "Estados que mais compram da Bahia" },
+            tooltip: {
+                enabled: true,
+                callbacks: {
+                    label: (item) => {
+                        return `Valor Bruto: ${item.raw.toLocaleString("pt-BR", {style: "currency", currency: "BRL",})}`;
+                    },
+                },
+            },
         },
     };
 

@@ -26,7 +26,7 @@ const RadarChart = () => {
     const [chartData, setChartData] = useState(null);
 
     useEffect(() => {
-        fetch("/Compra_2019_04.txt") 
+        fetch("/Venda_2019_04.txt") 
             .then((response) => response.text())
             .then((text) => {
                 const lines = text.split("\n");
@@ -82,6 +82,14 @@ const RadarChart = () => {
         plugins: {
             legend: { position: "top" },
             title: { display: true, text: "Principais setores de vendas no mês de abril" },
+            tooltip: {
+                enabled: true,
+                callbacks: {
+                    label: (item) => {
+                        return `Total de Vendas: ${item.raw.toLocaleString("pt-BR", {style: "currency", currency: "BRL",})}`;
+                    },
+                },
+            },
         },
         scales: {
             r: {
@@ -90,10 +98,7 @@ const RadarChart = () => {
                 },
                 pointLabels: {
                     callback: function (value, index) {
-                        return chartData.datasets[0].data[index].toLocaleString("pt-BR", {
-                            style: "currency",
-                            currency: "BRL",
-                        });
+                        return chartData.datasets[0].data[index].toLocaleString();
                     },
                 },
             },

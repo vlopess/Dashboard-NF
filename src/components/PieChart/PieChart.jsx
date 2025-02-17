@@ -78,6 +78,14 @@ const PieChartICMS = () => {
         plugins: {
             legend: { position: "top" },
             title: { display: true, text: "Estados que mais geram ICMS nas vendas" },
+            tooltip: {
+                enabled: true,
+                callbacks: {
+                    label: (item) => {
+                        return `ICMS Gerado: ${item.raw.toLocaleString("pt-BR", {style: "currency", currency: "BRL",})}`;
+                    },
+                },
+            },
         },
     };
 
