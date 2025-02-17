@@ -34,6 +34,6 @@
 }
 
 .radio-inputs .radio input:checked + .name {
-    background-color: #00d4ff;
+    background-color: #cfd3ff;
     font-weight: 600;
 }
